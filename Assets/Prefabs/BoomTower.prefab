@@ -116,6 +116,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7314511314685489701}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3062550565725964313}
   m_SourcePrefab: {fileID: 100100000, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
 --- !u!4 &116265162869828183 stripped
 Transform:
@@ -160,6 +163,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce1fd2e736dde3428966552b495456e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerGridUnit
+--- !u!114 &3062550565725964313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781055815190294765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e075b28cd48f3a4e9d11d00c6c518e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerMergeUnit
+  m_towerTeir: 3
 --- !u!1001 &1488102311079685070
 PrefabInstance:
   m_ObjectHideFlags: 0

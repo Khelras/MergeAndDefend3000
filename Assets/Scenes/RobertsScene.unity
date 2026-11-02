@@ -7447,6 +7447,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1521029d5bd0f942a9937082a4f73a9, type: 3}
   m_PrefabInstance: {fileID: 361028910}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &368340663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368340665}
+  - component: {fileID: 368340664}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &368340664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368340663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f346ec379af45469c29742ecd6ffa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGridTester
+  m_testCell: {fileID: 1425935747}
+  m_towerPrefab: {fileID: 1710859159108482682, guid: 06e699c091077034581801194dc5cf08, type: 3}
+--- !u!4 &368340665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368340663}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.14794, y: 0.314, z: 3.071}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &369174304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18865,6 +18911,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c664751f7e7925c4084292a0ab6d965f, type: 3}
   m_PrefabInstance: {fileID: 932732481}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &933617497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 933617499}
+  - component: {fileID: 933617498}
+  m_Layer: 0
+  m_Name: TowerMergerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &933617498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933617497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8e828cccbf5bb4e96886459b431a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerMergerManager
+  m_tier2Prefab: {fileID: 2111796683529899913, guid: 6a46278b2335ee140b5a7bcf03102486, type: 3}
+  m_tier3Prefab: {fileID: 7314511314685489701, guid: f1cb1694ae3773141b21445576e102d2, type: 3}
+--- !u!4 &933617499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933617497}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06607, y: -0.47, z: 12.02299}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &937310277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20248,6 +20340,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c664751f7e7925c4084292a0ab6d965f, type: 3}
   m_PrefabInstance: {fileID: 995564771}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1000980271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1000980273}
+  - component: {fileID: 1000980272}
+  m_Layer: 0
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1000980272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000980271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f346ec379af45469c29742ecd6ffa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGridTester
+  m_testCell: {fileID: 176055084}
+  m_towerPrefab: {fileID: 1710859159108482682, guid: 06e699c091077034581801194dc5cf08, type: 3}
+--- !u!4 &1000980273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000980271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.14794, y: 0.314, z: 3.071}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1002623524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28393,6 +28531,7 @@ MonoBehaviour:
   m_gridLayer:
     serializedVersion: 2
     m_Bits: 128
+  m_towerMerger: {fileID: 0}
   m_dragHeight: 1.5
 --- !u!4 &1474096402
 Transform:
@@ -37769,6 +37908,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 886245704}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1842465877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1842465879}
+  - component: {fileID: 1842465878}
+  m_Layer: 0
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1842465878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842465877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f346ec379af45469c29742ecd6ffa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGridTester
+  m_testCell: {fileID: 1622519591}
+  m_towerPrefab: {fileID: 1710859159108482682, guid: 06e699c091077034581801194dc5cf08, type: 3}
+--- !u!4 &1842465879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842465877}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.14794, y: 0.314, z: 3.071}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1844468073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44015,4 +44200,8 @@ SceneRoots:
   - {fileID: 1895434177}
   - {fileID: 1474096402}
   - {fileID: 1595808714}
+  - {fileID: 368340665}
+  - {fileID: 1842465879}
+  - {fileID: 1000980273}
   - {fileID: 25994673}
+  - {fileID: 933617499}

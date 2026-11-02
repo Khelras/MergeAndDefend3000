@@ -7,6 +7,8 @@ public class TowerDragging : MonoBehaviour
     [SerializeField] private Camera m_mainCamera;
     [SerializeField] private LayerMask m_towerLayer;
     [SerializeField] private LayerMask m_gridLayer;
+    [SerializeField] private TowerMergerManager m_towerMerger;
+
 
     [Header("Settings")]
     [SerializeField] private float m_dragHeight = 1.5f;
@@ -158,23 +160,38 @@ public class TowerDragging : MonoBehaviour
             return;
         }
 
-        TowerGridCell targetCell =
-            GetCellAtScreenPosition(screenPosition);
+        TowerGridCell targetCell = GetCellAtScreenPosition(screenPosition);
 
-        if (targetCell != null && targetCell == m_originalCell)
+        // Handle the drop logic based on the target cell.
+        if (targetCell == m_originalCell)
         {
             ReturnTower();
         }
-        else if (targetCell != null && !targetCell.IsOccupied())
+        else if (targetCell != null && !targetCell.IsOccupied()) // If the target cell is valid and unoccupied, place the tower there.
         {
             m_originalCell.RemoveTower();
             targetCell.PlaceTower(m_selectedTower);
+        }
+        else if (targetCell != null && targetCell.IsOccupied()) // If the target cell is occupied, check for merging possibilities.
+        {
+            TowerGridUnit targetTower = targetCell.GetTower();
+
+            // Check if the towers can be merged using the TowerMergerManager.
+            if (m_towerMerger != null && m_towerMerger.CanMerge(m_selectedTower, targetTower))
+            {
+                m_towerMerger.MergeTowers(m_selectedTower, targetTower);
+            }
+            else
+            {
+                ReturnTower();
+            }
         }
         else
         {
             ReturnTower();
         }
 
+        // Reset highlights and references after the drag operation.
         if (m_hoveredCell != null)
         {
             m_hoveredCell.SetHighlight(false);
