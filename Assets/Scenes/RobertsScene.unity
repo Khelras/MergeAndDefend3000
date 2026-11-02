@@ -28531,7 +28531,7 @@ MonoBehaviour:
   m_gridLayer:
     serializedVersion: 2
     m_Bits: 128
-  m_towerMerger: {fileID: 0}
+  m_towerMerger: {fileID: 933617498}
   m_dragHeight: 1.5
 --- !u!4 &1474096402
 Transform:
