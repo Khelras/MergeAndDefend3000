@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9197528382060411016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ProjectileSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +84,10 @@ PrefabInstance:
       value: BoomTower
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -93,13 +97,57 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1381607105255623717}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8123403833469666929}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7314511314685489701}
   m_SourcePrefab: {fileID: 100100000, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
 --- !u!4 &116265162869828183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
   m_PrefabInstance: {fileID: 439021737798438332}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &781055815190294765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84d54c3aee09a4a439a2983f43076f51, type: 3}
+  m_PrefabInstance: {fileID: 439021737798438332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8123403833469666929
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781055815190294765}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &7314511314685489701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781055815190294765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce1fd2e736dde3428966552b495456e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGridUnit
 --- !u!1001 &1488102311079685070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,6 +200,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: weapon-cannon
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4105cfe15efbf8e4aae2b361cc6757fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598419493678936200, guid: 4105cfe15efbf8e4aae2b361cc6757fa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -165,6 +221,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4105cfe15efbf8e4aae2b361cc6757fa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5020829055891932341}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4105cfe15efbf8e4aae2b361cc6757fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4258442163203482851}
   m_SourcePrefab: {fileID: 100100000, guid: 4105cfe15efbf8e4aae2b361cc6757fa, type: 3}
 --- !u!4 &1070171194372847201 stripped
 Transform:
@@ -221,7 +280,19 @@ MonoBehaviour:
   m_rotateTowardsTarget: 1
   m_attakingRate: 2
   m_projectilePrefab: {fileID: 7284079734324790978, guid: 73553d96bb968a147a38789e6b1aa986, type: 3}
-  m_projectileDamaged: 6
+  m_projectileDamaged: 25
   m_projectileSpeed: 3
   m_projectileSpawnPos: {fileID: 9197528382060411016}
   m_blastRadius: 3.5
+--- !u!114 &4258442163203482851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758555577679255199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce1fd2e736dde3428966552b495456e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGridUnit
