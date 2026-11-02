@@ -18,6 +18,8 @@ public class TowerDragging : MonoBehaviour
     private TowerGridCell m_hoveredCell;
     private Plane m_dragPlane;
 
+    private TowerHighlight m_highlightedTower;
+
     private void Update()
     {
         if (m_mainCamera == null)
@@ -66,24 +68,24 @@ public class TowerDragging : MonoBehaviour
 
     private void StartDragging(Vector2 screenPosition)
     {
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
-
+        Debug.Log("Attempting to start dragging tower at screen position: " + screenPosition);
         Ray ray = m_mainCamera.ScreenPointToRay(screenPosition);
 
-        if (!Physics.Raycast(ray, out RaycastHit hit, 1000f, m_towerLayer))
+        if (!Physics.Raycast(ray, out RaycastHit hit, 1000f, m_towerLayer, QueryTriggerInteraction.Ignore))
         {
+            Debug.LogWarning("No tower detected on Tower layer");
             return;
         }
-
+        Debug.Log("Hit: " + hit.collider.name);
         TowerGridUnit tower = hit.collider.GetComponentInParent<TowerGridUnit>();
 
         if (tower == null || tower.GetCurrentCell() == null)
         {
+            Debug.LogWarning("No valid tower detected");
             return;
         }
+
+        Debug.Log("Tower selected successfully!");
 
         m_selectedTower = tower;
         m_originalCell = tower.GetCurrentCell();
@@ -112,19 +114,47 @@ public class TowerDragging : MonoBehaviour
     {
         TowerGridCell newCell = GetCellAtScreenPosition(screenPosition);
 
-        if (newCell != m_hoveredCell)
+        if (newCell == m_hoveredCell)
         {
-            if (m_hoveredCell != null)
-            {
-                m_hoveredCell.SetHighlight(false);
-            }
+            return;
+        }
 
-            m_hoveredCell = newCell;
-            if (m_hoveredCell != null)
-            {
-                bool validCell = !m_hoveredCell.IsOccupied() || m_hoveredCell == m_originalCell;
+        // Remove the previous highlights.
+        if (m_hoveredCell != null)
+        {
+            m_hoveredCell.SetHighlight(false);
+        }
 
-                m_hoveredCell.SetHighlight(validCell);
+        if (m_highlightedTower != null)
+        {
+            m_highlightedTower.SetHighlight(false);
+            m_highlightedTower = null;
+        }
+
+        m_hoveredCell = newCell;
+
+        if (m_hoveredCell == null)
+        {
+            return;
+        }
+
+        // Highlight an empty grid cell green.
+        if (!m_hoveredCell.IsOccupied())
+        {
+            m_hoveredCell.SetHighlight(true);
+            return;
+        }
+
+        // Check whether the occupied cell contains a compatible tower.
+        TowerGridUnit targetTower = m_hoveredCell.GetTower();
+
+        if (m_towerMerger != null && m_towerMerger.CanMerge(m_selectedTower, targetTower))
+        {
+            m_highlightedTower = targetTower.GetComponent<TowerHighlight>();
+
+            if (m_highlightedTower != null)
+            {
+                m_highlightedTower.SetHighlight(true);
             }
         }
     }
@@ -133,11 +163,7 @@ public class TowerDragging : MonoBehaviour
     {
         Ray ray = m_mainCamera.ScreenPointToRay(screenPosition);
 
-        RaycastHit[] hits = Physics.RaycastAll(
-            ray,
-            1000f,
-            m_gridLayer
-        );
+        RaycastHit[] hits = Physics.RaycastAll(ray, 1000f, m_gridLayer, QueryTriggerInteraction.Ignore);
 
         foreach (RaycastHit hit in hits)
         {
@@ -179,7 +205,16 @@ public class TowerDragging : MonoBehaviour
             // Check if the towers can be merged using the TowerMergerManager.
             if (m_towerMerger != null && m_towerMerger.CanMerge(m_selectedTower, targetTower))
             {
-                m_towerMerger.MergeTowers(m_selectedTower, targetTower);
+                if (m_highlightedTower != null)
+                {
+                    m_highlightedTower.SetHighlight(false);
+                    m_highlightedTower = null;
+                }
+
+                if (!m_towerMerger.MergeTowers(m_selectedTower, targetTower))
+                {
+                    ReturnTower();
+                }
             }
             else
             {
@@ -195,6 +230,13 @@ public class TowerDragging : MonoBehaviour
         if (m_hoveredCell != null)
         {
             m_hoveredCell.SetHighlight(false);
+        }
+
+        // Reset the highlight on the previously highlighted tower, if any.
+        if (m_highlightedTower != null)
+        {
+            m_highlightedTower.SetHighlight(false);
+            m_highlightedTower = null;
         }
 
         m_selectedTower = null;
