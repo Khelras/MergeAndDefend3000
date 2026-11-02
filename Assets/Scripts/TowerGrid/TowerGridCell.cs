@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TowerGridCell : MonoBehaviour
 {
+    [SerializeField] private GameObject m_highlight;
     private TowerGridUnit m_currentTower;
 
     public bool IsOccupied()
@@ -24,6 +25,7 @@ public class TowerGridCell : MonoBehaviour
         m_currentTower = tower;
         tower.SetCurrentCell(this);
         tower.transform.position = transform.position;
+
         return true;
     }
 
@@ -35,5 +37,13 @@ public class TowerGridCell : MonoBehaviour
         }
 
         m_currentTower = null;
+    }
+
+    public void SetHighlight(bool highlighted)
+    {
+        if (m_highlight != null)
+        {
+            m_highlight.SetActive(highlighted);
+        }
     }
 }
