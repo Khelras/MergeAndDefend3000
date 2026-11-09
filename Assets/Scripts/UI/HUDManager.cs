@@ -57,7 +57,11 @@ public class HUDManager : MonoBehaviour
     }
 
     public void PauseGame()
-    { 
+    {
+        // Pause Audio
+        SFXManager.Instance.PauseAudio();
+
+        // Pause Game
         pauseMenu.SetActive(true);
         ShowPauseMenu();
         Time.timeScale = 0f;
@@ -65,6 +69,10 @@ public class HUDManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        // Resume Audio
+        SFXManager.Instance.ResumeAudio();
+
+        // Resume Game
         HideAllMenus();
         Time.timeScale = 1f;
     }
