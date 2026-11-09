@@ -36,7 +36,7 @@ public class TowerHighlight : MonoBehaviour
                 highlighted[j] = material;
             }
 
-            m_highlightMaterials[i] = highlighted;
+            m_highlightMaterials[i] = highlighted;  
         }
     }
 
