@@ -80,6 +80,10 @@ public class HUDManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        // Resume Game to resume any Paused State before going to Main Menu
+        ResumeGame();
+
+        // Go to the Main Menu Scene
         SceneManager.LoadScene("MainMenu");
     }
 }
