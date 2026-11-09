@@ -548,9 +548,9 @@ MonoBehaviour:
   m_head: {fileID: 1423592538071033368}
   m_rotationSpeed: 1
   m_rotateTowardsTarget: 0
-  m_attakingRate: 0.5
+  m_attakingRate: 0.1
   m_projectilePrefab: {fileID: 0}
-  m_projectileDamaged: 10
+  m_projectileDamaged: 5
   m_projectileSpeed: 0
   m_lineRenderers:
   - {fileID: 3327450017007024211}
