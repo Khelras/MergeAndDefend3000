@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1423592538071033368}
   - component: {fileID: 8472689217574848295}
   - component: {fileID: 2226051098623151692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 2816039550442823859}
   - component: {fileID: 3193835889440163606}
   - component: {fileID: 6901446993060410314}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crystal-small_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6e1e7e949ea5ee048a8d08dc7634486d, type: 2}
+  - {fileID: 2100000, guid: 189e463d591364e4fa68e3bd61993fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 5383554441158968130}
   - component: {fileID: 215574949267328328}
   - component: {fileID: 5337326955403046725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crystal-small_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 6481599408377765454}
   - component: {fileID: 4580476242885777016}
   - component: {fileID: 2035776654756784828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crystal-small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,11 @@ GameObject:
   - component: {fileID: 1836955099561727269}
   - component: {fileID: 2905114853572535623}
   - component: {fileID: 6239639606090236387}
-  m_Layer: 0
+  - component: {fileID: 766021134554826918}
+  - component: {fileID: 4487696844673371334}
+  - component: {fileID: 3007283648925258583}
+  - component: {fileID: 5539070564981207982}
+  m_Layer: 6
   m_Name: TwoLazerTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +520,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -554,6 +558,66 @@ MonoBehaviour:
   m_laserOrigins:
   - {fileID: 4048074687708029320}
   - {fileID: 4701504610048799068}
+--- !u!65 &766021134554826918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971354426874913543}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0.24, z: 0}
+--- !u!114 &4487696844673371334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971354426874913543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce1fd2e736dde3428966552b495456e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGridUnit
+--- !u!114 &3007283648925258583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971354426874913543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e075b28cd48f3a4e9d11d00c6c518e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerMergeUnit
+  m_towerTier: 5
+--- !u!114 &5539070564981207982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6971354426874913543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8c828039c048746b095b296a9c5a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerHighlight
+  m_highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  m_emissionIntensity: 2
 --- !u!1 &7754969982860368449
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +630,7 @@ GameObject:
   - component: {fileID: 800424012519889366}
   - component: {fileID: 5925533339683100867}
   - component: {fileID: 3327450017007024211}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: crystal-small_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +734,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6e1e7e949ea5ee048a8d08dc7634486d, type: 2}
+  - {fileID: 2100000, guid: 189e463d591364e4fa68e3bd61993fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -805,6 +869,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b211481392442da43939165d368cf645, type: 3}
       propertyPath: m_Name
       value: tower-square-build-a
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b211481392442da43939165d368cf645, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

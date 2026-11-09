@@ -3978,7 +3978,6 @@ MonoBehaviour:
   m_spawnInterval: 2
   m_timeBetweenWaves: 5
   m_playerBase: {fileID: 302936351}
-  m_player: {fileID: 0}
 --- !u!4 &174222803
 Transform:
   m_ObjectHideFlags: 0
@@ -4399,6 +4398,74 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c664751f7e7925c4084292a0ab6d965f, type: 3}
   m_PrefabInstance: {fileID: 185274714}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &189459476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 189459479}
+  - component: {fileID: 189459478}
+  - component: {fileID: 189459477}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &189459477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189459476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.StandaloneInputModule
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &189459478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189459476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &189459479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189459476}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &192460758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19027,6 +19094,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerMergerManager
   m_tier2Prefab: {fileID: 2111796683529899913, guid: 6a46278b2335ee140b5a7bcf03102486, type: 3}
   m_tier3Prefab: {fileID: 7314511314685489701, guid: f1cb1694ae3773141b21445576e102d2, type: 3}
+  m_tier4Prefab: {fileID: 239963772564119310, guid: 55e916692697407488f236689d04dc08, type: 3}
+  m_tier5Prefab: {fileID: 4487696844673371334, guid: 250f5c92ea7cc04479f84ad035371d55, type: 3}
 --- !u!4 &933617499
 Transform:
   m_ObjectHideFlags: 0
@@ -22938,8 +23007,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerSummoner
   m_player: {fileID: 302936351}
-  m_gridCells: []
   m_tier1Prefab: {fileID: 1710859159108482682, guid: 06e699c091077034581801194dc5cf08, type: 3}
+  m_towerGridParent: {fileID: 25994673}
   m_towerCost: 50
 --- !u!4 &1196633814
 Transform:
@@ -44272,6 +44341,10 @@ PrefabInstance:
       propertyPath: m_moneyText
       value: 
       objectReference: {fileID: 930962082}
+    - target: {fileID: 5437799622548405863, guid: b220d90b032b33b4da33432db48c939a, type: 3}
+      propertyPath: startingMoney
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5875561469723086873, guid: b220d90b032b33b4da33432db48c939a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.46757
@@ -44344,3 +44417,4 @@ SceneRoots:
   - {fileID: 933617499}
   - {fileID: 1196633814}
   - {fileID: 332572101}
+  - {fileID: 189459479}

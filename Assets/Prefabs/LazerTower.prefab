@@ -9,7 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3182847700535245825}
-  m_Layer: 0
+  - component: {fileID: 5176161917250164323}
+  - component: {fileID: 239963772564119310}
+  - component: {fileID: 5035744005701066207}
+  - component: {fileID: 6517736035205676034}
+  m_Layer: 6
   m_Name: LazerTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +37,66 @@ Transform:
   - {fileID: 6077370462692604138}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5176161917250164323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5116158129499346897}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.75, y: 0.5, z: 0.75}
+  m_Center: {x: 0, y: -0.1, z: 0}
+--- !u!114 &239963772564119310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5116158129499346897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce1fd2e736dde3428966552b495456e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerGridUnit
+--- !u!114 &5035744005701066207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5116158129499346897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e075b28cd48f3a4e9d11d00c6c518e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerMergeUnit
+  m_towerTier: 4
+--- !u!114 &6517736035205676034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5116158129499346897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8c828039c048746b095b296a9c5a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerHighlight
+  m_highlightColor: {r: 0, g: 1, b: 1, a: 1}
+  m_emissionIntensity: 2
 --- !u!1001 &4365563770714194060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97,6 +161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: detail-crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 64859c319fc863d4ca08a52cc0cdbbbc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -126,7 +194,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -186,7 +254,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6e1e7e949ea5ee048a8d08dc7634486d, type: 2}
+  - {fileID: 2100000, guid: 189e463d591364e4fa68e3bd61993fe7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -338,6 +406,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bc88fd3e80415fd4586b481e148257e2, type: 3}
       propertyPath: m_Name
       value: tower-round-build-c
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc88fd3e80415fd4586b481e148257e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

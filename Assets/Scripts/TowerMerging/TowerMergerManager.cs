@@ -5,6 +5,10 @@ public class TowerMergerManager : MonoBehaviour
     [Header("Tower Prefabs")]
     [SerializeField] private TowerGridUnit m_tier2Prefab;
     [SerializeField] private TowerGridUnit m_tier3Prefab;
+    [SerializeField] private TowerGridUnit m_tier4Prefab;
+    [SerializeField] private TowerGridUnit m_tier5Prefab;
+
+    private const int MAX_TOWER_TIER = 5; // Maximum tower tier allowed
 
     public bool CanMerge(TowerGridUnit firstTower, TowerGridUnit secondTower)
     {
@@ -23,9 +27,10 @@ public class TowerMergerManager : MonoBehaviour
         {
             return false;
         }
-        // Check if both towers are of the same tier and not already at the maximum tier (3).
+        // Check if both towers are of the same tier and within the allowed range for merging.
         int tier = firstMerge.GetTowerTier();
-        return tier == secondMerge.GetTowerTier() && tier < 3;
+
+        return tier == secondMerge.GetTowerTier() && tier >= 1 && tier < MAX_TOWER_TIER;
     }
 
     public bool MergeTowers(TowerGridUnit draggedTower, TowerGridUnit targetTower)
@@ -48,7 +53,26 @@ public class TowerMergerManager : MonoBehaviour
 
         // Determine the next tier prefab based on the current tier of the dragged tower.
         int currentTier = draggedTower.GetComponent<TowerMergeUnit>().GetTowerTier();
-        TowerGridUnit nextPrefab = currentTier == 1 ? m_tier2Prefab : m_tier3Prefab;
+        TowerGridUnit nextPrefab = null;
+
+        switch (currentTier)
+        {
+            case 1:
+                nextPrefab = m_tier2Prefab;
+                break;
+            case 2:
+                nextPrefab = m_tier3Prefab;
+                break;
+            case 3:
+                nextPrefab = m_tier4Prefab;
+                break;
+            case 4:
+                nextPrefab = m_tier5Prefab;
+                break;
+            default:
+                Debug.LogError("TowerMergerManager: Invalid tower tier for merging.");
+                return false;
+        }
 
         // Ensure the next tier prefab is valid.
         if (nextPrefab == null)
