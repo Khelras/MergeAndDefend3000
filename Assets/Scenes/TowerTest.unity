@@ -196,12 +196,16 @@ MonoBehaviour:
   m_enemyPrefab: {fileID: 7227971337059615006, guid: a913ec5d68589b6419fb80f2420136fd, type: 3}
   m_spawnPoint:
   - {fileID: 1286768810}
-  m_spawnInterval: 2
-  m_maxEnemies: 10
   m_waypoints:
   - {fileID: 1611087072}
   - {fileID: 1900462184}
   - {fileID: 1383243786}
+  m_TotalWaves: 5
+  m_startingEnemyCount: 5
+  m_extraEnemiesPerWave: 2
+  m_spawnInterval: 2
+  m_timeBetweenWaves: 5
+  m_playerBase: {fileID: 0}
 --- !u!4 &174222803
 Transform:
   m_ObjectHideFlags: 0
@@ -1136,6 +1140,10 @@ PrefabInstance:
     - target: {fileID: 8683985238537294631, guid: 06e699c091077034581801194dc5cf08, type: 3}
       propertyPath: m_Name
       value: SniperTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683985238537294631, guid: 06e699c091077034581801194dc5cf08, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
