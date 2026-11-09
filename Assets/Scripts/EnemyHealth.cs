@@ -34,5 +34,6 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("Enemy has died.");
         // Add death logic here (e.g., play animation, drop loot, etc.)
         Destroy(gameObject);
+        SFXManager.Instance.PlaySFX(SFXManager.Instance.EnemyDeathSFX, 1f);
     }
 }
