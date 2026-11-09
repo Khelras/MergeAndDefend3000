@@ -10,7 +10,7 @@ public enum TowerTargetPriority
 public class Tower : MonoBehaviour
 {
     [Header("Info")]
-    private List<EnemyHealth> m_currentEnemiesInRange = new List<EnemyHealth>();
+    protected List<EnemyHealth> m_currentEnemiesInRange = new List<EnemyHealth>();
     public EnemyHealth m_currentEnemy;
     public TowerTargetPriority m_targetPriority;
     [SerializeField] Transform m_head;
