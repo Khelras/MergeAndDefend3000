@@ -57,7 +57,11 @@ public class HUDManager : MonoBehaviour
     }
 
     public void PauseGame()
-    { 
+    {
+        // Pause Audio
+        SFXManager.Instance.PauseAudio();
+
+        // Pause Game
         pauseMenu.SetActive(true);
         ShowPauseMenu();
         Time.timeScale = 0f;
@@ -65,12 +69,21 @@ public class HUDManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        // Resume Audio
+        SFXManager.Instance.ResumeAudio();
+
+        // Resume Game
         HideAllMenus();
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenuScene");
+        // Resume Game to resume any Paused State before going to Main Menu
+        ResumeGame();
+
+        // Go to the Main Menu Scene
+        SceneManager.LoadScene("MainMenu");
     }
 }

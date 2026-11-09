@@ -44,4 +44,16 @@ public class SFXManager : MonoBehaviour
         SFXSource.pitch = pitch;
         SFXSource.PlayOneShot(clip);
     }
+
+    public void PauseAudio()
+    {
+        BackGround.Pause();
+        SFXSource.Pause();
+    }
+
+    public void ResumeAudio()
+    {
+        BackGround.UnPause();
+        SFXSource.UnPause();
+    }
 }
