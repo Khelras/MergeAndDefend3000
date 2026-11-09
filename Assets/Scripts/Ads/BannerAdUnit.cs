@@ -11,22 +11,40 @@ public class BannerAdUnit : IAdUnit
         m_id = id;
     }
 
-    public void Load()
-    {
-        Destroy();
-        m_view = new BannerView(m_id, AdSize.Banner, AdPosition.Bottom);
-        m_view.LoadAd(new AdRequest());
-        m_view.Hide(); // Hidden until a Menu asks for it
-    }
+    public void Load() { } // Nothing to preload as the banner is built on Show
 
     public void Show()
     {
-        m_view?.Show();
+        // Ad is already Showing
+        if (m_view != null) return;
+
+        // Size of the Ad
+        AdSize size = AdSize.Banner;
+
+#if UNITY_EDITOR
+        // Unity Editor or Non-Android/iOS platforms
+        m_view = new BannerView(m_id, size, AdPosition.Bottom);
+#else
+        float scale = MobileAds.Utils.GetDeviceScale();
+        if (scale <= 0f) scale = Screen.dpi > 0f ? Screen.dpi / 160f : 1f;
+
+        // Centre horizontally inside the safe area
+        Rect safe = Screen.safeArea;
+        int x = Mathf.RoundToInt((safe.x + safe.width * 0.5f) / scale - size.Width * 0.5f);
+
+        // Bottom edge of the safe area, converted to a top-left y origin
+        float safeBottomFromTop = Screen.height - safe.y;
+        int y = Mathf.RoundToInt(safeBottomFromTop / scale - size.Height);
+
+        m_view = new BannerView(m_id, size, x, y);
+#endif
+
+        m_view.LoadAd(new AdRequest());
     }
 
     public void Hide()
     {
-        m_view?.Hide();
+        Destroy();
     }
 
     public void Destroy()

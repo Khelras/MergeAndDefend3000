@@ -1,4 +1,5 @@
 using GoogleMobileAds.Api;
+using GoogleMobileAds.Common;
 using System;
 using UnityEngine;
 
@@ -19,13 +20,15 @@ public class AdManager : MonoBehaviour
     [SerializeField] string m_interstitialId = "ca-app-pub-3940256099942544/1033173712";
     [SerializeField] string m_rewardedId = "ca-app-pub-3940256099942544/5224354917";
 
-    const string NoAdsKey = "NoAds";
+    const string NO_ADS_KEY = "NoAds";
     BannerAdUnit m_banner;
     InterstitialAdUnit m_interstitial;
     RewardedAdUnit m_rewarded;
     bool m_initialised;
 
-    public bool IsAdsEnabled => m_adsEnabledInBuild && PlayerPrefs.GetInt(NoAdsKey, 0) == 0;
+    bool m_bannerWanted;
+
+    public bool IsAdsEnabled => m_adsEnabledInBuild && PlayerPrefs.GetInt(NO_ADS_KEY, 0) == 0;
 
     void Awake()
     {
@@ -36,33 +39,48 @@ public class AdManager : MonoBehaviour
 
     void Start()
     {
-        if (!IsAdsEnabled) return; // SDK never even starts
+        if (!IsAdsEnabled) return; // SDK never even starts 
         MobileAds.Initialize(_ =>
         {
-            m_initialised = true;
-            m_banner = new BannerAdUnit(m_bannerId);
-            m_interstitial = new InterstitialAdUnit(m_interstitialId);
-            m_rewarded = new RewardedAdUnit(m_rewardedId);
-            m_banner.Load();
-            m_interstitial.Load();
-            m_rewarded.Load();
+            MobileAdsEventExecutor.ExecuteInUpdate(() =>
+            {
+                m_banner = new BannerAdUnit(m_bannerId);
+                m_interstitial = new InterstitialAdUnit(m_interstitialId);
+                m_rewarded = new RewardedAdUnit(m_rewardedId);
+
+                m_banner.Load();
+                m_interstitial.Load();
+                m_rewarded.Load();
+
+                m_initialised = true;
+
+                // Show Banner if it was requested before the SDK finished initializing
+                if (m_bannerWanted)
+                {
+                    m_banner.Show();
+                }
+            });
         });
     }
 
     public void ShowBanner()
     {
+        m_bannerWanted = true;
         if (IsAdsEnabled && m_initialised)
         {
             m_banner.Show();
         }
     }
+
     public void HideBanner()
     {
+        m_bannerWanted = false;
         if (m_initialised)
         { 
             m_banner.Hide();
         }
     }
+
     public void ShowInterstitial()
     {
         if (IsAdsEnabled && m_initialised)
@@ -82,14 +100,15 @@ public class AdManager : MonoBehaviour
     // Call this from a "Remove Ads" purchase or settings toggle
     public void DisableAds()
     {
-        //PlayerPrefs.SetInt(NoAdsKey, 1);
-        //PlayerPrefs.Save();
+        // Save NO ADS state to PlayerPrefs
+        PlayerPrefs.SetInt(NO_ADS_KEY, 1);
+        PlayerPrefs.Save();
 
-        //if (m_initialised)
-        //{
-        //    m_banner.Destroy();
-        //    m_interstitial.Destroy();
-        //}
+        if (m_initialised)
+        {
+            m_banner.Destroy();
+            m_interstitial.Destroy();
+        }
     }
 
     void OnDestroy()

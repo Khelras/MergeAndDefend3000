@@ -1,6 +1,7 @@
+using GoogleMobileAds.Api;
+using GoogleMobileAds.Common;
 using System;
 using UnityEngine;
-using GoogleMobileAds.Api;
 
 public class RewardedAdUnit : IAdUnit
 {
@@ -42,7 +43,7 @@ public class RewardedAdUnit : IAdUnit
         m_ad.Show(reward =>
         {
             Debug.Log($"Reward earned: {reward.Type} x{reward.Amount}");
-            m_onReward?.Invoke();
+            MobileAdsEventExecutor.ExecuteInUpdate(() => m_onReward?.Invoke());
         });
     }
 

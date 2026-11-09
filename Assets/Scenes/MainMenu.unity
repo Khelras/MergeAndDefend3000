@@ -11613,6 +11613,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c664751f7e7925c4084292a0ab6d965f, type: 3}
   m_PrefabInstance: {fileID: 1458084244}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1467176019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467176021}
+  - component: {fileID: 1467176020}
+  m_Layer: 0
+  m_Name: AdManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1467176020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467176019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9626c59ec3ffab4a8df917d77cc639c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AdManager
+  m_adsEnabledInBuild: 1
+  m_bannerId: ca-app-pub-3940256099942544/6300978111
+  m_interstitialId: ca-app-pub-3940256099942544/1033173712
+  m_rewardedId: ca-app-pub-3940256099942544/5224354917
+--- !u!4 &1467176021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467176019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1186.3354, y: 463.72433, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1469253445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17794,3 +17842,4 @@ SceneRoots:
   - {fileID: 1508032041}
   - {fileID: 1965391739}
   - {fileID: 571482783}
+  - {fileID: 1467176021}
