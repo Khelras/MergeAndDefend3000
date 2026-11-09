@@ -4,6 +4,8 @@ public class EnemyHealth : MonoBehaviour
 {
     [Header("Enemy Health Settings")]
     [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int m_moneyReward = 10;
+    private Player m_player;
 
     public float m_currentHealth;
 
@@ -29,8 +31,18 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    public void SetPlayerReference(Player player)
+    {
+        m_player = player;
+    }
+
     private void Die()
     {
+
+        if (m_player != null)
+        {
+            m_player.AddMoney(m_moneyReward);
+        }
         Debug.Log("Enemy has died.");
         // Add death logic here (e.g., play animation, drop loot, etc.)
         Destroy(gameObject);

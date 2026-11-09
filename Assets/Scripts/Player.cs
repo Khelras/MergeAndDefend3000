@@ -1,13 +1,20 @@
+using TMPro;
 using UnityEditor;
 using UnityEngine;
+using TMPro; 
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
-    public int money = 0;
 
     private int m_currentHealth;
     private bool m_isDefeated;
+
+    [Header("Money Stuffs")]
+    [SerializeField] private int startingMoney = 100;
+    [SerializeField] private TMP_Text m_moneyText;
+
+    public int money { get; private set; }
 
     public bool IsDefeated
     {
@@ -19,6 +26,9 @@ public class Player : MonoBehaviour
     {
         m_currentHealth = maxHealth;
         m_isDefeated = false;
+
+        money = startingMoney;
+        UpdateMoneyUI();
     }
 
     // Update is called once per frame
@@ -41,6 +51,35 @@ public class Player : MonoBehaviour
         {
             m_isDefeated = true;
             Debug.Log($"{gameObject.name} has been defeated!");
+        }
+    }
+
+    public void AddMoney(int amount)
+    {
+        if (amount <= 0)
+            return;
+        money += amount;
+        UpdateMoneyUI();
+    }
+
+    public bool SpendMoney(int amount)
+    {
+        if (amount <= 0 || amount > money)
+        {
+            return false; // Not enough money to spend
+        }
+
+        money -= amount;
+        UpdateMoneyUI();
+
+        return true; // Successfully spent money
+    }
+
+    private void UpdateMoneyUI()
+    {
+        if (m_moneyText != null)
+        {
+            m_moneyText.text = $"Money: {money}";
         }
     }
 }
