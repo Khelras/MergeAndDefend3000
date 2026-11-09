@@ -111,9 +111,17 @@ public class AdManager : MonoBehaviour
         }
     }
 
+    void OnApplicationQuit()
+    {
+        m_banner?.Destroy();
+        m_interstitial?.Destroy();
+        m_rewarded?.Destroy();
+    }
+
     void OnDestroy()
     {
         m_banner?.Destroy();
         m_interstitial?.Destroy();
+        m_rewarded?.Destroy();
     }
 }
