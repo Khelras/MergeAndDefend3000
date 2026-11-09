@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float m_timeBetweenWaves = 5f; // Time interval between waves
 
     // Reference to the player's base health
-    [SerializeField] private BaseHealth m_playerBase;
+    [SerializeField] private Player m_playerBase;
 
     private int m_currentWave = 0; // Current wave number
     private int m_enemiesToSpawn = 0; // Number of enemies to spawn in the current wave

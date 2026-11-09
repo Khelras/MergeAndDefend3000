@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-public class BaseHealth : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
 
