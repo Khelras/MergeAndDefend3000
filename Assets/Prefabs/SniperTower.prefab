@@ -146,9 +146,9 @@ MonoBehaviour:
   m_head: {fileID: 2178565907902524747}
   m_rotationSpeed: 5
   m_rotateTowardsTarget: 1
-  m_attakingRate: 2.5
+  m_attakingRate: 2
   m_projectilePrefab: {fileID: 4322633534343317643, guid: 2e06d1706112e3d42a87ed875190d46e, type: 3}
-  m_projectileDamaged: 50
+  m_projectileDamaged: 20
   m_projectileSpeed: 10
   m_projectileSpawnPos: {fileID: 3137006794475123598}
 --- !u!135 &8289318537946273143
