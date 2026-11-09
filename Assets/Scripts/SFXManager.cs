@@ -21,9 +21,17 @@ public class SFXManager : MonoBehaviour
 
     private void Awake()
     {
+        // Check if an instance already exists in the scene
+        if (Instance != null && Instance != this)
+        {
+            // Destroy the duplicate GameObject to maintain exactly one instance
+            Destroy(gameObject);
+            return;
+        }
 
+        //  Assign this instance as the global reference
         Instance = this;
-
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
