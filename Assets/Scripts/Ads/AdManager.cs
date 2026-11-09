@@ -73,19 +73,23 @@ public class AdManager : MonoBehaviour
 
     public void ShowRewarded(Action onReward)
     {
-        if (AdsEnabled && m_initialised && m_rewarded.IsReady()) m_rewarded.Show(onReward);
+        if (IsAdsEnabled && m_initialised && m_rewarded.IsReady)
+        {
+            m_rewarded.Show(onReward);
+        }
     }
 
     // Call this from a "Remove Ads" purchase or settings toggle
     public void DisableAds()
     {
-        PlayerPrefs.SetInt(NoAdsKey, 1);
-        PlayerPrefs.Save();
-        if (m_initialised)
-        {
-            m_banner.Destroy();
-            m_interstitial.Destroy();
-        }
+        //PlayerPrefs.SetInt(NoAdsKey, 1);
+        //PlayerPrefs.Save();
+
+        //if (m_initialised)
+        //{
+        //    m_banner.Destroy();
+        //    m_interstitial.Destroy();
+        //}
     }
 
     void OnDestroy()
