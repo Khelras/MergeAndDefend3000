@@ -5,18 +5,25 @@ public class LazerTower : Tower
     [Header("Laser")]
     [SerializeField] private LineRenderer m_lineRenderer;
     [SerializeField] private Transform m_laserOrigin; 
-    [SerializeField] private AudioSource m_laserAudioSource; 
+    private AudioSource m_laserAudioSource; 
 
     void Awake()
     {
         m_lineRenderer.positionCount = 2;
         m_lineRenderer.enabled = false;
 
-        m_laserAudioSource.clip = SFXManager.Instance.LazerSFX;
+        m_laserAudioSource = GetComponent<AudioSource>();
+        m_laserAudioSource.playOnAwake = false;
         m_laserAudioSource.loop = true;
         m_laserAudioSource.spatialBlend = 0f;
     }
-
+    private void Start()
+    {
+        if (m_laserAudioSource != null)
+        {
+            m_laserAudioSource.clip = SFXManager.Instance.LazerSFX;
+        }
+    }
     public override void Attack()
     {
         m_currentEnemy.TakeDamage(m_projectileDamaged);

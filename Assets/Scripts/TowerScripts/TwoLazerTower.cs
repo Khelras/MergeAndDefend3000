@@ -5,7 +5,7 @@ public class TwoLazerTower : Tower
     [Header("Laser")]
     [SerializeField] private LineRenderer[] m_lineRenderers; // size 2
     [SerializeField] private Transform[] m_laserOrigins;     // size 2
-    [SerializeField] private AudioSource m_laserAudioSource; 
+    private AudioSource m_laserAudioSource; 
 
     private EnemyHealth[] m_targets;
 
@@ -18,11 +18,18 @@ public class TwoLazerTower : Tower
             lr.enabled = false;
         }
 
-        m_laserAudioSource.clip = SFXManager.Instance.LazerSFX;
+        m_laserAudioSource = GetComponent<AudioSource>();
+        m_laserAudioSource.playOnAwake = false;
         m_laserAudioSource.loop = true;
         m_laserAudioSource.spatialBlend = 0f;
     }
-
+    private void Start()
+    {
+        if (m_laserAudioSource != null)
+        {
+            m_laserAudioSource.clip = SFXManager.Instance.LazerSFX;
+        }
+    }
     public override void Attack()
     {
         AssignTargets();
