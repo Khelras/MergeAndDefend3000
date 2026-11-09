@@ -3,15 +3,32 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [Header("Enemy Health Settings")]
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private float m_maxHealth = 100;
     [SerializeField] private int m_moneyReward = 10;
     private Player m_player;
+    private bool m_isDead;
 
     public float m_currentHealth;
+    public float MaxHealth { get { return m_maxHealth; } }
 
-    private void Start()
+    private void Awake()
     {
-        m_currentHealth = maxHealth;
+        m_currentHealth = m_maxHealth;
+    }
+
+    public void SetPlayerReference(Player player)
+    {
+        m_player = player;
+    }
+
+    public float GetHealthPercentage()
+    {
+        if (m_maxHealth <= 0)
+        {
+            return 0f;
+        }
+
+        return Mathf.Clamp01(m_currentHealth / m_maxHealth);
     }
 
     public void TakeDamage(float damage)
@@ -31,20 +48,29 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void SetPlayerReference(Player player)
-    {
-        m_player = player;
-    }
-
     private void Die()
     {
+        if (m_isDead)
+        {
+            return; // Prevent multiple death triggers
+        }
+
+        m_isDead = true;
+
 
         if (m_player != null)
         {
             m_player.AddMoney(m_moneyReward);
         }
-        Debug.Log("Enemy has died.");
+
         // Add death logic here (e.g., play animation, drop loot, etc.)
         Destroy(gameObject);
+    }
+
+    public void SetHealthMultiplier(float multiplier)
+    {
+        // Ensure the multiplier is at least 1 to avoid reducing health below the original max health
+        m_maxHealth *= Mathf.Max(1f, multiplier);
+        m_currentHealth = m_maxHealth;
     }
 }
