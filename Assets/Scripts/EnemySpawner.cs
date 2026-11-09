@@ -160,7 +160,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (m_waveText != null)
         {
-            m_waveText.text = $"Wave: {m_currentWave}";
+            m_waveText.text = $"Current Wave: {m_currentWave}";
         }
         if (m_highScoreText != null)
         {
