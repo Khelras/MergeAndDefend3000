@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class RemoveAdsButton : MonoBehaviour
 {
     [SerializeField] Button m_button;
-    [SerializeField] GameObject m_removeAdsButtons;
+    [SerializeField] GameObject m_removeAdsSection;
 
     void OnEnable()
     {
@@ -20,7 +20,7 @@ public class RemoveAdsButton : MonoBehaviour
     void Refresh()
     {
         bool adsOn = AdManager.Instance != null && AdManager.Instance.IsAdsEnabled;
-        m_removeAdsButtons.gameObject.SetActive(adsOn); // Hides once ads are removed
+        m_removeAdsSection.gameObject.SetActive(adsOn); // Hides once ads are removed
     }
 
     public void OnClicked() => IAPManager.Instance?.BuyRemoveAds();

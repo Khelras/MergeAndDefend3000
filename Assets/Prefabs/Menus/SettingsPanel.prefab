@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 1218990430690865197}
   - component: {fileID: 1648431217963353910}
   - component: {fileID: 4232224224383402592}
+  - component: {fileID: 5849660633076495586}
   m_Layer: 0
   m_Name: RestorePurchasesButton
   m_TagString: Untagged
@@ -416,6 +417,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5849660633076495586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256844702414774591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd2db58e0e72de498c1210ed6705e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RestorePurchasesButton
+  m_button: {fileID: 4232224224383402592}
+  m_removeAdsSection: {fileID: 7972285380889732758}
 --- !u!1 &3329669836096742078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,8 +1164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11dcd06875b46a64aa7e076f3191cb2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoveAdsButton
-  m_button: {fileID: 0}
-  m_removeAdsButtons: {fileID: 0}
+  m_button: {fileID: 5532650881696620093}
+  m_removeAdsSection: {fileID: 7972285380889732758}
 --- !u!1 &6805822435348524678
 GameObject:
   m_ObjectHideFlags: 0
