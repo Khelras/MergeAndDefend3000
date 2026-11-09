@@ -48,6 +48,9 @@ public class HUDManager : MonoBehaviour
     {
         HideAllMenus();
         pauseMenuPanel.SetActive(true);
+
+        // Show Banner Ads
+        AdManager.Instance?.ShowBanner();
     }
 
     public void ShowSettings()
@@ -65,6 +68,9 @@ public class HUDManager : MonoBehaviour
         pauseMenu.SetActive(true);
         ShowPauseMenu();
         Time.timeScale = 0f;
+
+        // Show Banner Ads
+        AdManager.Instance?.ShowBanner();
     }
 
     public void ResumeGame()
@@ -76,6 +82,9 @@ public class HUDManager : MonoBehaviour
         HideAllMenus();
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+
+        // Hide Banner Ads
+        AdManager.Instance?.HideBanner();
     }
 
     public void GoToMainMenu()

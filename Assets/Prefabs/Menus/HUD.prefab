@@ -1703,7 +1703,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 95854412796756769, guid: 6badd89bbcb903749bf27d213c582a7d, type: 3}
       propertyPath: m_fontSize
-      value: 105
+      value: 124.3
       objectReference: {fileID: 0}
     - target: {fileID: 848849363902224681, guid: 6badd89bbcb903749bf27d213c582a7d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1835,6 +1835,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2400516377115315154, guid: 6badd89bbcb903749bf27d213c582a7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993312653561361769, guid: 6badd89bbcb903749bf27d213c582a7d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5781155407373851144, guid: 6badd89bbcb903749bf27d213c582a7d, type: 3}

@@ -28,10 +28,15 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
+    void OnEnable()
+    {
+        AdManager.Instance?.ShowBanner();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void HideAllMenus()
@@ -61,6 +66,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayButtonExecute()
     {
+        AdManager.Instance?.HideBanner(); // Remove the banner ad when transitioning to the game scene
         SceneManager.LoadScene("RobertsScene");
     }
 }
