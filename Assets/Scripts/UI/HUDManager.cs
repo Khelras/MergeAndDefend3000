@@ -1,18 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenuManager : MonoBehaviour
+public class HUDManager : MonoBehaviour
 {
+    [SerializeField] private GameObject unsafeArea;
+    [SerializeField] private GameObject pauseMenu;
+
+    [Header("Pause Menu")]
     [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private GameObject settingsPanel;
+
+
 
     void Awake()
     {
         // Ensure references are set in the inspector
-        if (pauseMenuPanel == null) Debug.LogWarning("Pause Menu Panel GameObject is not assigned in the PauseMenuManager.");
-        if (settingsPanel == null) Debug.LogWarning("Settings Panel GameObject is not assigned in the PauseMenuManager.");
+        if (unsafeArea == null) Debug.LogWarning("Unsafe Area GameObject is not assigned in the HUDManager.");
+        if (pauseMenu == null) Debug.LogWarning("Pause Menu GameObject is not assigned in the HUDManager.");
+        if (pauseMenuPanel == null) Debug.LogWarning("Pause Menu Panel GameObject is not assigned in the HUDManager.");
+        if (settingsPanel == null) Debug.LogWarning("Settings Panel GameObject is not assigned in the HUDManager.");
 
-        pauseMenuPanel.SetActive(true);
+        unsafeArea.SetActive(true);
+        pauseMenu.SetActive(false);
+        pauseMenuPanel.SetActive(false);
         settingsPanel.SetActive(false);
     }
 
@@ -47,7 +57,8 @@ public class PauseMenuManager : MonoBehaviour
     }
 
     public void PauseGame()
-    {
+    { 
+        pauseMenu.SetActive(true);
         ShowPauseMenu();
         Time.timeScale = 0f;
     }
