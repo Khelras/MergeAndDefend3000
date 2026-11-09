@@ -8376,6 +8376,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c664751f7e7925c4084292a0ab6d965f, type: 3}
   m_PrefabInstance: {fileID: 1025155392}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1038212585 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8055996921349319339, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+  m_PrefabInstance: {fileID: 1596575906}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583b55218eb4293468fe725509494b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
 --- !u!1001 &1050106445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12785,6 +12796,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1955791576844349957, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.07299805
+      objectReference: {fileID: 0}
     - target: {fileID: 3466519149183437279, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.78494
@@ -12833,8 +12848,56 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4081204020117446399, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4476119344181636327, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897995043032757866, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1038212585}
+    - target: {fileID: 4897995043032757866, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897995043032757866, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897995043032757866, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844972560997736072, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844972560997736072, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5844972560997736072, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732829384675371964, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582599260877961852, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582599260877961852, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736252564235896196, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8176293197026970576, guid: b05cf725d7bd81f43ab73e211bfb8b29, type: 3}
