@@ -74,6 +74,7 @@ public class HUDManager : MonoBehaviour
 
         // Resume Game
         HideAllMenus();
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 
