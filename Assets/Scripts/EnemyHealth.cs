@@ -65,6 +65,7 @@ public class EnemyHealth : MonoBehaviour
 
         // Add death logic here (e.g., play animation, drop loot, etc.)
         Destroy(gameObject);
+        SFXManager.Instance.PlaySFX(SFXManager.Instance.EnemyDeathSFX, 1f);
     }
 
     public void SetHealthMultiplier(float multiplier)

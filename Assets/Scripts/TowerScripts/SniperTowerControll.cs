@@ -8,5 +8,6 @@ public class SniperTowerControll : Tower
     {
         bullet = Instantiate(m_projectilePrefab, m_projectileSpawnPos.position, Quaternion.identity);
         bullet.GetComponent<Projectile>().Initialize(m_currentEnemy, m_projectileDamaged, m_projectileSpeed);
+        SFXManager.Instance.PlaySFX(SFXManager.Instance.SniperSFX, 1f);
     }
 }
