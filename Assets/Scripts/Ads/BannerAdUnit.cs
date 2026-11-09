@@ -39,6 +39,8 @@ public class BannerAdUnit : IAdUnit
         m_view = new BannerView(m_id, size, x, y);
 #endif
 
+        m_view.OnBannerAdLoaded += () => Debug.Log("[Banner] Loaded");
+        m_view.OnBannerAdLoadFailed += err => Debug.Log("[Banner] Failed: " + err);
         m_view.LoadAd(new AdRequest());
     }
 
