@@ -36,6 +36,9 @@ public class SFXManager : MonoBehaviour
 
     private void Start()
     {
+        float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 100f) / 100f;
+        AudioListener.volume = savedVolume;
+
         BackGround.PlayOneShot(BackGroundMusic);
     }
 
