@@ -125,6 +125,13 @@ public class EnemySpawner : MonoBehaviour
 
         m_spawnedEnemies++;
         m_activeEnemies++;
+
+        // Set the player reference for the enemy's health component
+        EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+        if (enemyHealth != null)
+        {
+            enemyHealth.SetPlayerReference(m_playerBase);
+        }
     }
 
     public void EnemyRemoved()

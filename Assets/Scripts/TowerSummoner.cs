@@ -4,14 +4,31 @@ public class TowerSummoner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Player m_player;
-    [SerializeField] private TowerGridCell[] m_gridCells;
     [SerializeField] private TowerGridUnit m_tier1Prefab;
+    [SerializeField] private Transform m_towerGridParent;
+
+    private TowerGridCell[] m_gridCells;
 
     [Header("Settings")]
     [SerializeField] private int m_towerCost = 50;
 
+    private void Awake()
+    {
+        if (m_towerGridParent == null)
+        {
+            Debug.LogError("Tower grid parent is not assigned in TowerSummoner.");
+            return;
+        }
+
+        m_gridCells = m_towerGridParent.GetComponentsInChildren<TowerGridCell>();
+
+        Debug.Log($"Found {m_gridCells.Length} grid cells for tower placement.");
+    }
+
     public void SummonTower()
     {
+        Debug.Log("SUMMON BUTTON CLICKED!");
+
         if (m_player == null || m_tier1Prefab == null)
         {
             Debug.LogError("Player or Tower Prefab reference is missing in TowerSummoner.");
