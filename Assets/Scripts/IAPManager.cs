@@ -9,9 +9,11 @@ public class IAPManager : MonoBehaviour
 {
     public static IAPManager Instance { get; private set; }
 
-    public const string RemoveAdsId = "remove_ads";      // must match Play Console
+    public const string RemoveAdsId = "remove_ads"; // must match Play Console
 
-    public event Action OnAdsRemoved;                    // UI listens to this
+    public event Action OnAdsRemoved; // UI listens to this
+    public event Action<bool> OnRestoreFinished; // true = remove_ads found
+    bool m_restoreRequested;
     public bool StoreReady { get; private set; }
 
     StoreController m_storeController;
@@ -73,7 +75,7 @@ public class IAPManager : MonoBehaviour
     // Called by the Settings button
     public void BuyRemoveAds()
     {
-        if (AdManager.Instance != null && !AdManager.Instance.IsAdsEnabled) return;   // already removed
+        if (AdManager.Instance != null && !AdManager.Instance.IsAdsEnabled) return; // already removed
         if (!StoreReady)
         {
             Debug.Log("Store not ready yet");
@@ -88,7 +90,7 @@ public class IAPManager : MonoBehaviour
     {
         Debug.Log($"Products fetched: {products.Count}");
         StoreReady = true;
-        m_storeController.FetchPurchases();              // restore previous purchases
+        m_storeController.FetchPurchases(); // restore previous purchases
     }
 
     void OnProductsFetchFailed(ProductFetchFailed failure)
@@ -109,7 +111,7 @@ public class IAPManager : MonoBehaviour
         }
 
         Debug.Log($"Purchase complete - Product: {product.definition.id}");
-        m_storeController.ConfirmPurchase(order);        // finishes the transaction
+        m_storeController.ConfirmPurchase(order);
     }
 
     void OnPurchaseConfirmed(Order order)
@@ -137,19 +139,33 @@ public class IAPManager : MonoBehaviour
 
     void OnPurchasesFetched(Orders orders)
     {
-        // Restore: if remove_ads already bought (e.g. after a reinstall), apply it again
+        bool found = false;
+
         foreach (var confirmed in orders.ConfirmedOrders)
         {
             if (GetFirstProductInOrder(confirmed)?.definition.id == RemoveAdsId)
             {
+                found = true;
                 GrantRemoveAds();
             }
+        }
+
+        if (m_restoreRequested)
+        {
+            m_restoreRequested = false;
+            OnRestoreFinished?.Invoke(found);
         }
     }
 
     void OnPurchasesFetchFailed(PurchasesFetchFailureDescription failure)
     {
         Debug.Log("Fetch purchases failed: " + failure.Message);
+
+        if (m_restoreRequested)
+        {
+            m_restoreRequested = false;
+            OnRestoreFinished?.Invoke(false);
+        }
     }
 
     void OnStoreDisconnected(StoreConnectionFailureDescription failure)
@@ -166,4 +182,17 @@ public class IAPManager : MonoBehaviour
     }
 
     Product GetFirstProductInOrder(Order order) => order.CartOrdered.Items().First()?.Product;
+
+    public void RestorePurchases()
+    {
+        if (!StoreReady)
+        {
+            Debug.Log("Store not ready, cannot restore yet");
+            OnRestoreFinished?.Invoke(false);
+            return;
+        }
+
+        m_restoreRequested = true;
+        m_storeController.FetchPurchases();
+    }
 }
