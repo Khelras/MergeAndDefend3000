@@ -71,6 +71,6 @@ public class HUDManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenuScene");
+        SceneManager.LoadScene("MainMenu");
     }
 }
