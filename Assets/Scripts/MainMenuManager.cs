@@ -5,6 +5,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject unsafeArea;
     [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
 
     void Awake()
@@ -12,10 +13,12 @@ public class MainMenuManager : MonoBehaviour
         // Ensure references are set in the inspector
         if (unsafeArea == null) Debug.LogWarning("Unsafe Area GameObject is not assigned in the MainMenuManager.");
         if (mainMenuPanel == null) Debug.LogWarning("Main Menu Panel GameObject is not assigned in the MainMenuManager.");
+        if (settingsPanel == null) Debug.LogWarning("Settings Panel GameObject is not assigned in the MainMenuManager.");
         if (creditsPanel == null) Debug.LogWarning("Credits Panel GameObject is not assigned in the MainMenuManager.");
 
         unsafeArea.SetActive(true);
         mainMenuPanel.SetActive(true);
+        settingsPanel.SetActive(false);
         creditsPanel.SetActive(false);
     }
 
@@ -31,15 +34,28 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
+    private void HideAllMenus()
+    {
+        mainMenuPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        creditsPanel.SetActive(false);
+    }
+
     public void ShowMainMenu()
     {
+        HideAllMenus();
         mainMenuPanel.SetActive(true);
-        creditsPanel.SetActive(false);
+    }
+
+    public void ShowSettings()
+    {
+        HideAllMenus();
+        settingsPanel.SetActive(true);
     }
 
     public void ShowCredits()
     {
-        mainMenuPanel.SetActive(false);
+        HideAllMenus();
         creditsPanel.SetActive(true);
     }
 
