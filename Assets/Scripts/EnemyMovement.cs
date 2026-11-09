@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     //Store the basehp and how much damage the enemy will do to the base
     [SerializeField] private int m_baseDamage = 10;
 
-    private BaseHealth m_playerBase;
+    private Player m_playerBase;
 
     // private int to keep track of the current waypoint index
     private int m_currentWaypoint = 0;
@@ -52,14 +52,8 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    public void SetPlayerBase(BaseHealth playerBase)
+    public void SetBase(Player playerBase)
     {
         m_playerBase = playerBase;
     }
-
-    public void SetBase(BaseHealth baseHealth)
-    {
-        m_playerBase = baseHealth;
-    }
-
 }

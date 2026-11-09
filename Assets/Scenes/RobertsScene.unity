@@ -44133,7 +44133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1626333780839198333, guid: b220d90b032b33b4da33432db48c939a, type: 3}
       propertyPath: m_Name
-      value: BaseHealth
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5875561469723086873, guid: b220d90b032b33b4da33432db48c939a, type: 3}
       propertyPath: m_LocalPosition.x

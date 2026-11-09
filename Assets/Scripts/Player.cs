@@ -1,9 +1,10 @@
 using UnityEditor;
 using UnityEngine;
 
-public class BaseHealth : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
+    public int money = 0;
 
     private int m_currentHealth;
     private bool m_isDefeated;
