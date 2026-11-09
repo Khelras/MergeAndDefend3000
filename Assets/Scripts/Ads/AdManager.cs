@@ -63,6 +63,17 @@ public class AdManager : MonoBehaviour
         });
     }
 
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    void Update()
+    {
+        // Press F1 Key to re-enable ads
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            DebugEnableAds();
+        }
+    }
+#endif
+
     public void ShowBanner()
     {
         m_bannerWanted = true;
