@@ -63,6 +63,17 @@ public class AdManager : MonoBehaviour
         });
     }
 
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    void Update()
+    {
+        // Press F1 Key to re-enable ads
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            DebugEnableAds();
+        }
+    }
+#endif
+
     public void ShowBanner()
     {
         m_bannerWanted = true;
@@ -124,4 +135,14 @@ public class AdManager : MonoBehaviour
         m_interstitial?.Destroy();
         m_rewarded?.Destroy();
     }
+
+// FOR DEBUGGING PURPOSES ONLY
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    public void DebugEnableAds()
+    {
+        PlayerPrefs.DeleteKey(NO_ADS_KEY);
+        PlayerPrefs.Save();
+        Debug.Log("[DEBUG] Ads re-enabled. Restart the app to rebuild ad units.");
+    }
+#endif
 }
