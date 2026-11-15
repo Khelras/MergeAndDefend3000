@@ -1,5 +1,6 @@
 using System;
 using GoogleMobileAds.Api;
+using GoogleMobileAds.Common;
 using UnityEngine;
 
 public class InterstitialAdUnit : IAdUnit
@@ -29,8 +30,8 @@ public class InterstitialAdUnit : IAdUnit
 
             Debug.Log("[Interstitial] Loaded");
             m_ad = ad;
-            m_ad.OnAdFullScreenContentClosed += Load;
-            m_ad.OnAdFullScreenContentFailed += _ => Load();
+            m_ad.OnAdFullScreenContentClosed += () => MobileAdsEventExecutor.ExecuteInUpdate(Finish);
+            m_ad.OnAdFullScreenContentFailed += _ => MobileAdsEventExecutor.ExecuteInUpdate(Finish);
         });
     }
 
@@ -55,8 +56,8 @@ public class InterstitialAdUnit : IAdUnit
         var callback = m_onFinished;
         m_onFinished = null;
 
-        Load();
         callback?.Invoke();
+        Load(); // Pre-Load the next Ad
     }
 
     public void Hide() { } // not applicable to interstitials
