@@ -92,11 +92,15 @@ public class AdManager : MonoBehaviour
         }
     }
 
-    public void ShowInterstitial()
+    public void ShowInterstitial(Action onFinished = null)
     {
-        if (IsAdsEnabled && m_initialised)
+        if (IsAdsEnabled && m_initialised && m_interstitial != null && m_interstitial.IsReady)
         {
-            m_interstitial.Show();
+            m_interstitial.Show(onFinished);
+        }
+        else
+        {
+            onFinished?.Invoke();
         }
     }
 
