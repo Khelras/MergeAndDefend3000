@@ -9,11 +9,10 @@ public class ReminderNotifications : MonoBehaviour
 {
     public static ReminderNotifications Instance { get; private set; }
 
-    [SerializeField] float m_reminderHours = 24f;            // set to 12 for twice a day
-    [SerializeField] float m_testDelaySeconds = 0f;          // > 0 overrides hours, for testing
-    [SerializeField] string m_title = "We miss you!";
-    [SerializeField]
-    string[] m_messages =
+    [SerializeField] float m_reminderHours = 12f; // Remind the player ever 12 hours if they haven't opened the app
+    [SerializeField] float m_testDelaySeconds = 0f; 
+    [SerializeField] string m_title = "Merge & Defend";
+    [SerializeField] string[] m_messages =
     {
         "Your game is waiting. Come back and play!",
         "Ready for another round? Jump back in!",
@@ -40,7 +39,9 @@ public class ReminderNotifications : MonoBehaviour
         // Ask for permission (Android 13+ shows a prompt)
         var request = new PermissionRequest();
         while (request.Status == PermissionStatus.RequestPending)
+        {
             yield return null;
+        }
 
         m_hasPermission = request.Status == PermissionStatus.Allowed;
         Debug.Log("[Notifications] Permission granted: " + m_hasPermission);
@@ -48,7 +49,9 @@ public class ReminderNotifications : MonoBehaviour
         // Log if the app was opened by tapping a reminder
         var lastIntent = AndroidNotificationCenter.GetLastNotificationIntent();
         if (lastIntent != null)
+        {
             Debug.Log("[Notifications] Opened from notification. Data: " + lastIntent.Notification.IntentData);
+        }
 
         // The player is in the app, so nothing should be pending
         AndroidNotificationCenter.CancelAllScheduledNotifications();
@@ -99,10 +102,8 @@ public class ReminderNotifications : MonoBehaviour
 
     void OnApplicationPause(bool paused)
     {
-        if (paused)
-            ScheduleReminder();                                   // player left: start the countdown
-        else if (m_hasPermission)
-            AndroidNotificationCenter.CancelAllScheduledNotifications();   // player came back
+        if (paused) ScheduleReminder(); // player left: start the countdown
+        else if (m_hasPermission) AndroidNotificationCenter.CancelAllScheduledNotifications(); // player came back
     }
 
     void OnApplicationQuit() => ScheduleReminder();
