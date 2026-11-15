@@ -66,7 +66,13 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayButtonExecute()
     {
-        AdManager.Instance?.HideBanner(); // Remove the banner ad when transitioning to the game scene
-        SceneManager.LoadScene("RobertsScene");
+        // Remove the banner ad when transitioning to the game scene
+        AdManager.Instance?.HideBanner(); 
+        
+
+        if (AdManager.Instance != null) AdManager.Instance.ShowInterstitial(LoadGame);
+        else LoadGame();
     }
+
+    void LoadGame() => SceneManager.LoadScene("RobertsScene");
 }
