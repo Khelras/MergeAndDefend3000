@@ -11687,9 +11687,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AdManager
   m_adsEnabledInBuild: 1
-  m_bannerId: ca-app-pub-3940256099942544/6300978111
-  m_interstitialId: ca-app-pub-3940256099942544/1033173712
-  m_rewardedId: ca-app-pub-3940256099942544/5224354917
+  m_bannerId: ca-app-pub-3120336089754938/5729932182
+  m_interstitialId: ca-app-pub-3120336089754938/8232147451
+  m_rewardedId: ca-app-pub-3120336089754938/7402281514
 --- !u!4 &1467176021
 Transform:
   m_ObjectHideFlags: 0

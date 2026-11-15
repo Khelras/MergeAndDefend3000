@@ -16,9 +16,9 @@ public class AdManager : MonoBehaviour
     public static AdManager Instance { get; private set; }
 
     [SerializeField] bool m_adsEnabledInBuild = true; // Dev/Debug Kill Switch
-    [SerializeField] string m_bannerId = "ca-app-pub-3940256099942544/6300978111";
-    [SerializeField] string m_interstitialId = "ca-app-pub-3940256099942544/1033173712";
-    [SerializeField] string m_rewardedId = "ca-app-pub-3940256099942544/5224354917";
+    [SerializeField] string m_bannerId = "ca-app-pub-3120336089754938/5729932182";
+    [SerializeField] string m_interstitialId = "ca-app-pub-3120336089754938/8232147451";
+    [SerializeField] string m_rewardedId = "ca-app-pub-3120336089754938/7402281514";
 
     const string NO_ADS_KEY = "NoAds";
     BannerAdUnit m_banner;
