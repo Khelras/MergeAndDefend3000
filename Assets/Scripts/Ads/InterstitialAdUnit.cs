@@ -1,6 +1,5 @@
 using System;
 using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
 using UnityEngine;
 
 public class InterstitialAdUnit : IAdUnit
@@ -34,6 +33,8 @@ public class InterstitialAdUnit : IAdUnit
             m_ad.OnAdFullScreenContentFailed += _ => Load();
         });
     }
+
+    public void Show() => Show(null);
 
     public void Show(Action onFinished)
     {
