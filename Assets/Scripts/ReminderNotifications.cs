@@ -10,7 +10,7 @@ public class ReminderNotifications : MonoBehaviour
     public static ReminderNotifications Instance { get; private set; }
 
     [SerializeField] float m_reminderHours = 12f; // Remind the player ever 12 hours if they haven't opened the app
-    [SerializeField] float m_testDelaySeconds = 0f; 
+    [SerializeField] float m_testDelaySeconds = 10f; // 0 = no test delay; >0 = test delay in seconds (for testing)
     [SerializeField] string m_title = "Merge & Defend";
     [SerializeField] string[] m_messages =
     {
